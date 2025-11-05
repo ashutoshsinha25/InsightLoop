@@ -10,40 +10,40 @@ Build an AI-powered conversatinal insights engine that:
 
 2. System Overview:
 Top level architecture:
-                ┌──────────────────────────────┐
-                │          Frontend UI         │
-                │      (React / Streamlit)     │
-                └──────────────┬───────────────┘
-                               │
-                               ▼
-                ┌──────────────────────────────┐
-                │        FastAPI Backend       │
-                │   - Auth & API Gateway       │
-                │   - Task Scheduler (Celery)  │
-                └──────────────┬───────────────┘
-                               │
-            ┌──────────────────┼──────────────────┐
-            ▼                  ▼                  ▼
-  ┌────────────────┐   ┌────────────────┐   ┌────────────────┐
-  │ Data Ingestion │ → │ NLP Processing │ → │ Insight Engine │
-  │   (CSV, APIs)  │   │ (Sentiment,    │   │ (Topics, Root- │
-  │                │   │  NER, Topics)  │   │ cause, Summary)│
-  └────────────────┘   └────────────────┘   └────────────────┘
-                               │
-                               ▼
-                     ┌───────────────────┐
-                     │  Embedding Store  │
-                     │ (FAISS / Weaviate)│
-                     └───────────────────┘
-                               │
-                               ▼
-                     ┌───────────────────┐
-                     │  LLM Reasoning    │
-                     │(RAG / GPT / LLaMA)│
-                     └───────────────────┘
-                               │
-                               ▼
-                     ┌───────────────────┐
-                     │  Visualization /  │
-                     │ Insight Dashboards│
-                     └───────────────────┘
+
+```mermaid
+flowchart TD
+    subgraph UI["Frontend UI"]
+        A1["React / Streamlit"]
+    end
+
+    subgraph API["FastAPI Backend"]
+        B1["Auth & API Gateway"]
+        B2["Task Scheduler (Celery)"]
+    end
+
+    subgraph PIPELINE["Processing Pipeline"]
+        C1["Data Ingestion<br/>(CSV, APIs)"]
+        C2["NLP Processing<br/>(Sentiment, NER, Topics)"]
+        C3["Insight Engine<br/>(Topics, Root-cause, Summary)"]
+    end
+
+    subgraph STORAGE["Embedding Store"]
+        D1["FAISS / Weaviate"]
+    end
+
+    subgraph REASONING["LLM Reasoning"]
+        E1["RAG / GPT / LLaMA"]
+    end
+
+    subgraph DASH["Insight Dashboards"]
+        F1["Dashboards & Reports"]
+    end
+
+    %% Connections
+    UI --> API
+    API --> PIPELINE
+    PIPELINE --> STORAGE
+    STORAGE --> REASONING
+    REASONING --> DASH
+```
