@@ -9,8 +9,8 @@ Build an AI-powered conversatinal insights engine that:
 
 
 2. System Overview:
-Top level architecture:
 
+Top level architecture:
 ```mermaid
 flowchart TD
     subgraph UI["Frontend UI"]
