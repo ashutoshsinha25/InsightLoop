@@ -47,3 +47,34 @@ flowchart TD
     STORAGE --> REASONING
     REASONING --> DASH
 ```
+3. Core backend stack:
+
+* Components: 
+    - Framwwork: FastAPI
+    - ASGI Server: Uvicorn 
+    - Task Queue: Celery + Redis 
+    - Serializartion/Validation: Pydantic v2
+    - Authentication: FastAPI Users (JWT) or Firebase JWT Verify
+    - API docs: Swagger / Redoc 
+
+* Data & Storage: 
+
+// TODO 
+
+* Machine Learning / NLP: 
+    - Embeddings: OpenAI / HuggingFace
+    - Senmantic Analysis: HuggingFace Transformers
+    - Topic Modeling: BERTopic / LDA 
+    - Summarization: OpenAI (gpt) / Meta (bart-large-cnn) / Google (t5)
+    - NER/Entity Extraction: SpaCy / HuggingFace
+    - Keyword Extraction: YAKE / KeyBERT/ HuggingFace
+    - Root Cause Analysis: Custom LLM Prompts / GPT-4/ Scikit-learn
+    - RAG: LangGraph / LangChain
+    - Evaluation: Promptfoo / nltk / rouge-score / bert-score
+
+
+* Job Orchestration & Processing:
+    - Asyn Queue: Celery + Redis
+    - Monitoring: Celery Flower
+    - Batch Processing: Corn (via Celery Beat)
+
