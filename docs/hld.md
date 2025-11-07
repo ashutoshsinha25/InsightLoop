@@ -58,8 +58,12 @@ flowchart TD
     - API docs: Swagger / Redoc 
 
 * Data & Storage: 
+    - Relational db: PostgreSQL / Supabase
+    - Object Storage: AWS S3 / Cloudflare R2 
+    - Vector db: FAISS / Weaviate / Pinecone
+    - Cache: Redis
+    - ORM: SQLAlchemy + Alembic
 
-// TODO 
 
 * Machine Learning / NLP: 
     - Embeddings: OpenAI / HuggingFace
